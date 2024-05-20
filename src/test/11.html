@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>循环异步请求</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.3.0/axios.js"></script>
+</head>
+
+<body>
+  <script>
+    let arr = [
+      { name: '孙悟空', id: '111', age: null },
+      { name: '猪八戒', id: '222', age: null },
+      { name: '沙和尚', id: '333', age: null },
+      { name: '唐僧', id: '444', age: null },
+      { name: '白龙马', id: '555', age: null }
+    ]
+
+    function getAge(name) {
+      return new Promise((resolve, reject) => {
+        axios.get(`http://ashuai.work/api/getAge?name=${name}`).then((res) => {
+          let age = res.data.data.age
+          console.log(`获取 ${name} 的年龄为： ${age}`);
+          resolve(age)
+        }).catch((err) => {
+          reject(err)
+        })
+      })
+    }
+
+    async function getAgeFn(arr) {
+      // 给数组循环赋值
+      let newArr = arr.map(async (item) => {
+        console.log('item--1', await getAge(item.name));
+        item.age = await getAge(item.name)
+        return item
+      })
+      console.log('newArr--2', newArr);
+      // Promise接收一个数组
+      await Promise.all(newArr)
+      // 执行完毕，再往下走
+      console.log('最终加工好的数组结果：', arr);
+    }
+
+    getAgeFn(arr)
+  </script>
+</body>
+
+</html>

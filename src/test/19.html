@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <script>
+    let nums1 = [1, 2, 2, 3], nums2 = [2, 3]
+    // function getArr2(nums1, nums2) {
+    //   let arr = []
+    //   for (let i = 0; i < nums1.length; i++) {
+    //     if (nums2.indexOf(nums1[i]) !== -1) {
+    //       arr.push(nums1[i])
+    //     }
+    //   }
+    //   return [...new Set(arr)]
+    // };
+    // let arr2 = getArr2(nums1, nums2)
+    // console.log(arr2);
+    var intersection = function (nums1, nums2) {
+      nums1.sort((x, y) => x - y);
+      nums2.sort((x, y) => x - y);
+      console.log(nums1,nums2);
+      // 定义数组长度
+      const length1 = nums1.length, length2 = nums2.length;
+      let index1 = 0, index2 = 0;
+      // 定义数组
+      const intersection = [];
+      // 如果第一项小于最后一项，说明不止一个数组项
+      while (index1 < length1 && index2 < length2) {
+        // 定义数组项第一项
+        const num1 = nums1[index1], num2 = nums2[index2];
+        // 如果2个数组，2个数组项相同
+        if (num1 === num2) {
+          // 保证加入元素的唯一性
+          // 定义数组长度不为0 或者 数组项不等于定义数组的最后一项
+          if (!intersection.length || num1 !== intersection[intersection.length - 1]) {
+            intersection.push(num1);
+          }
+          index1++;
+          index2++;
+        } else if (num1 < num2) {
+          index1++;
+        } else {
+          index2++;
+        }
+      }
+      return intersection;
+    };
+    console.log('结局',intersection(nums1, nums2))
+  </script>
+  <!-- <script>
+    // 力扣之二分查找
+    let nums = [1, 45, 2, 9, 13, 56, -1]
+    // 二分法需要数组正序或倒序，配合while
+    function getWhileNum(arr,target){
+      arr.sort((a,b)=>a-b)
+      let firstIndex = 0
+      let lastIndex = arr.length - 1
+      let midIndex = Math.floor((lastIndex + firstIndex) / 2)
+      while(firstIndex<= lastIndex){
+        if(arr[midIndex] === target) {
+          return midIndex
+        } else if(arr[midIndex] > target) {
+          lastIndex = midIndex - 1
+        } else if(arr[midIndex] < target) {
+          firstIndex = midIndex + 1
+        }
+      }
+      return -1
+    }
+    console.time('nums0')
+    getWhileNum(nums,9)
+    console.timeEnd('nums0')
+
+    function getNum(nums,target) {
+      return nums.indexOf(9)
+    }
+    console.time('nums1')
+    getNum(nums,9)
+    console.timeEnd('nums1')
+    function getNum2(nums,target){
+      for (let i = 0; i < nums.length; i++) {
+        if(nums[i] === target) {
+          return i
+        }
+      }
+      return -1
+    }
+    console.time('nums2')
+    getNum2(nums,3)
+    console.timeEnd('nums2')
+    function getNum3(nums,target){
+      return nums.findIndex(item=>item===target)
+    }
+    console.time('nums3')
+    getNum3(nums,9)
+    console.timeEnd('nums3')
+  </script> -->
+  <!-- <script>
+    // 冒泡排序+sort排序
+    let arr = [4,5,56,21,2,45,689,71,4545,45,465564,4,5,56,21,2,45,689,71,4545,45,465,4545,45,465564,4,5,56,21,2,45,689,71,4545,45,465,4545,45,465564,4,5,56,21,2,45,689,71,4545,45,465,4545,45,465564,4,5,56,21,2,45,689,71,4545,45,465,4545,45,465564,4,5,56,21,2,45,689,71,4545,45,465564,4,5,56,21,2,45,689,71,4545,45,465564,10,4545,1,4545,45,465564,10,4545,45,452,78,578,45,29]
+    function getSortArr(arr){
+      if(arr.length === 0 || !Array.isArray(arr)){
+        throw Error
+      }
+      arr.sort((a,b)=>a-b)
+    }
+    console.time('sort')
+    getSortArr(arr)
+    console.timeEnd('sort') // sort: 0.321044921875 ms
+
+    function getForArr(arr){
+      if(arr.length === 0 || !Array.isArray(arr)){
+        throw Error
+      }
+      let temp
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+          if(arr[i]<arr[j]) {
+            temp = arr[i]
+            arr[i] = arr[j]
+            arr[j] = temp
+          }
+        }
+      }
+      console.log(arr);
+      return arr
+    }
+    console.time('for')
+    getForArr(arr)
+    console.timeEnd('for') // for: 2.72900390625 ms
+  </script> -->
+  <!-- <script>
+    // 4的冥
+    function getMi(n){
+      if(n === 0) {
+        return false
+      } else if(n === 1) {
+        return true
+      } else {
+        n = n / 4
+        if(Number.isInteger(n)){
+          return true
+        } else {
+          return false
+        }
+      }
+    }
+    getMi(10)
+  </script> -->
+  <!-- <script>
+    // 各种循环的耗时计算
+    const arr = [...Array(1000000)];
+    // for循环
+    function getTime1(arr){
+      for (let i = 0; i < arr.length; i++) {
+
+      }
+    }
+    console.time('ts1')
+    getTime1(arr)
+    console.timeEnd('ts1')
+    // forEach
+    function getTime2(arr){
+      arr.forEach(el => {
+
+      });
+    }
+    console.time('ts2')
+    getTime2(arr)
+    console.timeEnd('ts2')
+    // map
+    function getTime3(arr){
+      arr.map(el => {
+
+      });
+    }
+    console.time('ts3')
+    getTime3(arr)
+    console.timeEnd('ts3')
+
+    // for of
+    function getTime4(arr){
+      for (const item of arr) {
+      }
+    }
+    console.time('ts4')
+    getTime4(arr)
+    console.timeEnd('ts4')
+
+  </script> -->
+  <!-- <script>
+    // 力扣之将句子排序
+    // 输出："This is a sentence"
+    let s = "is2 sentence4 This1 a3"
+    function getCont(str){
+      let str1 = str.split(' ')
+      str1.sort((a,b)=>{
+        return a[a.length-1] - b[b.length-1]
+      })
+      let arr = str1.map(item=>{
+        return item.slice(0,-1)
+      })
+      let str2 = arr.join(' ')
+      return str2
+    }
+    console.log(getCont(s))
+  </script> -->
+  <!-- <script>
+    // 力扣之好字符串
+    let s = "abacbc"
+    function getTotal(str){
+      let str1 = str.split('')
+      let obj = {}
+      str1.map(item=>{
+        if(item in obj){
+        let count = obj[item]
+          obj[item] = count + 1
+        } else {
+          obj[item] = 1
+        }
+      })
+      console.log(obj);
+      return obj
+    }
+    getTotal(s)
+  </script> -->
+  <!-- <script>
+    let s = "-est1ng-Leet=code-Q!"
+    // 判断是否是大小写英文字母
+    function isLetter(s) {
+      let str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      return str.includes(s)
+    }
+
+    var reverseOnlyLetters = function (s) {
+      s = s.split('') // 字符串转数组
+      let l = 0 // 左侧指针
+      let r = s.length - 1 // 右侧指针
+
+      while (l < r) {
+        if (!isLetter(s[l])) { // 左边不是字母，左边往右走
+          l = l + 1
+        }
+        if (!isLetter(s[r])) { // 右边不是字母，右边往左走
+          r = r - 1
+        }
+        if (isLetter(s[l]) & isLetter(s[r])) { // 如果左右都是字母，才交换值，相向而行
+          let temp;
+          temp = s[l]
+          s[l] = s[r]
+          s[r] = temp
+          l = l + 1
+          r = r - 1
+        }
+      }
+      return s.join('') // 操作完以后，再转回字符串
+    };
+  </script> -->
+  <!-- <script>
+    // 力扣之按身高排序
+    // 题目 人和高度一一对应 从高到矮 去排序
+    let names = ["Alice", "Bob", "Ciny"], heights = [155, 185, 150]
+    // ["Bob", "Alice", "Ciny"]
+    function getMax(names, heights) {
+      for (let i = 0; i < names.length; i++) {
+        heights[i] = [names[i], heights[i]]
+      }
+      let sortHeight = heights.sort((a,b)=>{
+        return b[1] - a[1]
+      })
+      let res = sortHeight.map(item=>{
+        console.log(item);
+        return item[0]
+      })
+      return res
+    }
+    console.log(getMax(names, heights))
+  </script> -->
+</body>
+
+</html>
+<!-- <script>
+  [
+    ["Alice",155],
+    [  "Bob",  185],
+    [  "Ciny",  150]
+  ]
+  如何转换成
+  [{  "Alice":155},{  "Bob":  185},{  "Ciny":  150}]
+</script> -->

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function deepFreeze(obj) {
+      // 首先使用Object.freeze冻结当前对象
+      Object.freeze(obj);
+
+      // 获取对象的所有自有属性（不包括继承的）
+      const propNames = Object.getOwnPropertyNames(obj);
+
+      console.log('propNames', propNames);
+
+      // 遍历所有属性
+      propNames.forEach(name => {
+        const prop = obj[name];
+
+        // 如果属性是个对象并且可以被冻结（避免冻结null, undefined等）
+        if (typeof prop === 'object' && prop !== null && !Object.isFrozen(prop)) {
+          // 对属性进行深度冻结
+          deepFreeze(prop);
+        }
+      });
+
+      // 返回冻结后的对象（虽然通常不需要，但保持函数的一致性）
+      return obj;
+    }
+
+    // 示例
+    let obj = [{
+      name: 'Alice',
+      details: {
+        age: 30,
+        address: {
+          city: 'Wonderland'
+        }
+      },
+      hobbies: ['reading', 'chess']
+    }];
+
+    // 深度冻结obj
+    deepFreeze(obj);
+  </script>
+  <!-- <script>
+    let arr = {
+      name: 'Alice',
+      details: {
+        age: 30,
+        address: {
+          city: 'Wonderland'
+        }
+      },
+      hobbies: ['reading', 'chess']
+    };
+    // let obj = { food: '饼干', nice: '两颗星', children: { food: '小熊饼干', nice: {name:{xingxing:'两颗星'}} } }
+    function DeepFreeze(obj) {
+      // 不管传入的是数组还是对象，先进行冻结
+      Object.freeze(obj)
+      // 如果是数组
+      if (Array.isArray(obj)) {
+        obj.forEach(el => {
+          console.log('el--', el);
+          DeepFreeze(el)
+        });
+      } else {
+        // 如果是对象
+        for (const key in obj) {
+          if (Object.prototype.toString.call(obj[key]) === '[object Object]' || Object.prototype.toString.call(obj[key]) === '[object Array]') {
+            console.log('obj[key]--', obj[key]);
+            DeepFreeze(obj[key])
+          }
+        }
+      }
+
+    }
+    DeepFreeze(arr)
+
+
+  </script> -->
+</body>
+
+</html>

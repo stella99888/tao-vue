@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // var arr0 = [1, 2, 3]
+    // arr0.forEach(item => item + 1)
+    // console.log(arr0, '0--');
+
+    // var arr1 = [1, 2, 3]
+    // var arr2 = arr1.map(item => item + 1)
+    // console.log(arr1, arr2, '0--');
+
+
+
+    // console.log(4444,Object.prototype.toString.call([]))
+    // console.log(5555,Object.prototype.toString.apply([]))
+    // console.log(Object.prototype.toString.bind())
+
+    // let fn = Object.prototype.toString.bind([])
+    // let res = fn()
+    // console.log(66666,res);
+
+
+    // const targetMap = new WeakMap()
+    // targetMap.set('a', 111)
+    // console.log('targetMap--', targetMap);
+
+    // let loadimage = "http://ashuai.work:10000/imgGifSrc/loading.gif" // 服务器加载中图片
+    // let errorimage = "http://ashuai.work:10000/imgGifSrc/error.gif" // 服务器加载中图片
+
+
+    var arr = ['Tom', 'Jack', 'Jerry', 'Jack', 'Tom', 'Tom']
+
+    let map = new Map()
+    arr.forEach((item)=>{
+      if(map.has(item)){
+        let curCount = map.get(item)
+        curCount = curCount + 1
+        map.set(item,curCount)
+      }else {
+        map.set(item,1)
+      }
+    })
+    console.log(map);
+    console.log(Array.from(map));
+    console.log(Array.from(map).flat(),'111');
+
+    // let obj = {}
+    // arr.forEach((item)=>{
+    //   if(item in obj){
+    //     let curCount = obj[item]
+    //     obj[item] = curCount + 1
+    //   }else {
+    //     obj[item] = 1
+    //   }
+    // })
+    // console.log('---', obj);
+
+
+
+    // let obj = {
+    //   'Tom':3,
+    //   'Jack':2,
+    //   'Jerry':1
+    // }
+
+    // let count = 1
+    // let obj = {}
+    // for (let i = 0; i < arr.length; i++) {
+    //   if(!(arr[i] in obj)){
+    //     obj[arr[i]] = count
+    //   } else {
+    //     count += 1
+    //     obj[arr[i]] = count
+    //   }
+    // }
+    // console.log(obj);
+
+
+
+  </script>
+</body>
+
+</html>

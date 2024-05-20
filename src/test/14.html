@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // let message = "the sky is blue"
+    let message ="  hello    world!  "
+    function getMsg(msg){
+      let arr2 = msg.split(' ').reverse().filter(item => item.trim() !== '');
+      return arr2.join(' ')
+    }
+    let res = getMsg(message)
+    console.log('1--', res);
+  </script>
+  <!-- <script>
+    let arr = msg.split(' ').reverse()
+      let arr2 = []
+      arr.forEach(el => {
+        if(el !== '') {
+          arr2.push(el)
+        }
+      });
+      return arr2.join(' ')
+  </script> -->
+  <!-- 58ms 51.22M -->
+  <!-- let arr = msg.split(' ').reverse()
+  let arr2 = arr.filter(item => item.trim() !== '');
+  return arr2.join(' ') -->
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 递归
+    let res = [
+      {
+        name: '中国',
+        city: 'zhongguo',
+        children: [
+          {
+            name: '四川',
+            city: 'sichuan',
+            children: [
+              {
+                name: '成都',
+                city: 'chengdu'
+              },
+              {
+                name: '攀枝花',
+                city: 'panzhihua'
+              }
+            ]
+          },
+          {
+            name: '河北',
+            city: 'hebei',
+            children: [
+              {
+                name: '保定',
+                city: 'baoding'
+              },
+              {
+                name: '石家庄',
+                city: 'shizjiazhuang'
+              }
+            ]
+          },
+        ]
+      },
+    ]
+    // const digui = (arr, wrap = []) => {
+    //   arr.forEach(item => {
+    //     wrap.push(item.city)
+    //     if (item.children && item.children.length > 0) {
+    //       digui(item.children,wrap)
+    //     }
+    //   });
+    //   return wrap
+    // }
+
+    // let wrap = []
+    // const digui = (arr)=>{
+    //   arr.forEach(item => {
+    //     wrap.push(item.city)
+    //     if(item.children && item.children.length > 0 ){
+    //       digui(item.children)
+    //     }
+    //   });
+    //   return wrap
+    // }
+
+    // const getArr = (params) =>{
+    //   let wrap = []
+    //   const digui = (arr) => {
+    //     arr.forEach(item => {
+    //       wrap.push(item.city)
+    //       if(item.children && item.children.length > 0){
+    //         digui(item.children)
+    //       }
+    //     });
+    //   }
+    //   digui(params)
+    //   return wrap
+    // }
+
+    // console.log(getArr(res))
+  </script>
+</body>
+
+</html>

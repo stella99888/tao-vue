@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let arr = [
+      { food: '薯片', nice: '三颗星', children: [] },
+      { food: '饼干', nice: '两颗星', children: [{ food: '小熊饼干', nice: '两颗星' }] },
+      { food: '排骨汤', nice: '四颗星', children: [{ food: '炖番茄', nice: '四颗星' }] },
+      { food: '止咳糖浆', nice: '两颗星', children: [{ food: '川贝枇杷', nice: '三颗星' }] },
+    ]
+
+    function DeepClone(params) {
+      let res
+      if(Array.isArray(params)){ // 是数组
+        res = []
+        params.forEach(item=>{
+          let newItem = DeepClone(item)
+          res.push(newItem)
+        })
+        return res
+      } else if(Object.prototype.toString.call(params) === '[object Object]') { // 是对象
+        res = {}
+        for (const key in params) {
+          let newItem = DeepClone(params[key])
+          res[key] = newItem
+        }
+        return res
+      } else {
+        res = params
+        return res
+      }
+    }
+    let Ress = DeepClone(arr)
+    console.log('Ress',Ress);
+    arr[0].food = '薯条'
+    console.log('arr',arr);
+  </script>
+</body>
+
+</html>

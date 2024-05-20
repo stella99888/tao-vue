@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="getPaused()">
+    点击就停下
+  </button>
+  <script>
+    let i = 0
+    let timer = setInterval(() => {
+      i = i + 1
+      console.log(i);
+    }, 1000);
+    // 继续打印
+    function getPaused() {
+      clearInterval(timer);
+    }
+
+    // for (var i = 0; i < 10; i++) {
+    //   ((j) => {
+    //     setTimeout(() => {
+    //       if(forPaused==99) {
+    //         console.log(j);
+    //       }
+    //     }, j * 1000);
+    //   }
+    //   )(i);
+    // }
+    // for (let i=0; i<10; i++) {
+    //   if(!forPaused){
+    //     setTimeout(()=> { console.log( i ); }, i*1000 );
+    //   } else {
+    //     break
+    //   }
+    // }
+    // setTimeout(() => {
+    //   for (let i = 0; i < 100; i++) {
+    //     if(!forPaused) {
+    //       console.log(i);
+    //     } else {
+    //       throw '--'
+    //     }
+    //   }
+    // }, 1000)
+
+  </script>
+</body>
+
+</html>

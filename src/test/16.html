@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>遍历对象，处理数据结构</h1>
+  <script>
+    let obj = {
+      西游记: {
+        孙悟空: { age: 500, home: '花果山' },
+        猪八戒: { age: 88, home: '高老庄' },
+      },
+      三国: {
+        刘备: { age: 50, home: '四川' },
+        曹操: { age: 42, home: '河北' },
+      },
+      红楼: {
+        林: { age: 14, home: '江南' },
+        薛: { age: 15, home: '金陵' },
+      },
+    }
+
+    // let arr = [
+    //   {
+    //     book: '西游记',
+    //     name: '孙悟空',
+    //     ageHome: [500, '花果山']
+    //   },
+    //   {
+    //     book: '西游记',
+    //     name: '猪八戒',
+    //     ageHome: [88, '高老庄']
+    //   },
+    //   {
+    //     book: '三国',
+    //     name: '刘备',
+    //     ageHome: [50, '四川']
+    //   },
+    //   {
+    //     book: '三国',
+    //     name: '曹操',
+    //     ageHome: [42, '河北']
+    //   },
+    // ]
+    function getArr(obj) {
+      let arr = []
+      for (let key in obj) {
+        for (let a in obj[key]) {
+          let objs = obj[key][a]
+          let valuesArr = Object.values(objs)
+          arr.push({
+            book: key,
+            name: a,
+            ageHome: valuesArr
+          })
+        }
+      }
+      return arr
+    }
+    // console.log(getArr(obj))
+    console.time('tese')
+    getArr(obj)
+    console.timeEnd('tese')
+  </script>
+</body>
+
+</html>

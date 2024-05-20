@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>整理数组中每个项有几个</h1>
+  <script>
+    var arr = ['lili','xoxo','oao','soas','xoxo','oao','soas']
+    function getObj(arr){
+      let obj = {}
+      arr.forEach(item=>{
+        // 如果存在
+        if(item in obj) {
+          obj[item] = obj[item] + 1
+        } else {
+          // 如果不存在
+          obj[item] = 1
+        }
+      })
+      return obj
+    }
+    console.log('---',getObj(arr));
+  </script>
+</body>
+
+</html>

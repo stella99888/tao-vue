@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <p></p>
+  <script>
+    let are = "<p><b>加粗</b></p ><p><i style=\"\">斜体</i></p ><p><u>底划线</u></p ><p><img style=\"width: 114px;\" src=\"https://ldoc.shou.org.cn/xuhui/a@F170CD87834F1BFD71070D5029592F9A.png\"><u><br></u></p ><p>结束</p >"
+    let dom = document.querySelector('p')
+    dom.innerHTML = are
+  </script> -->
+  <h1></h1>
+  <script>
+    function getTotal1(num) {
+      let total = 0
+      for (let i = 0; i <= num; i++) {
+        total += i
+      }
+      return total
+    }
+    console.time('nam')
+    getTotal1(1000000)
+    console.timeEnd('nam')
+    // document.querySelector('h1').innerHTML = getTotal(10)
+
+    // function getTotal2(num) {
+    //   let arr =new Array(num+1).keys()
+    //   arr = [...arr]
+    //   return arr.reduce((a,b)=> a+b)
+    // }
+    // console.log('3---',Date.now())
+    // getTotal2(100000)
+    // console.log('4---',Date.now())
+    // document.querySelector('h1').innerHTML = getTotal(10)
+
+  </script>
+
+</body>
+
+</html>

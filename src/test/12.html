@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <h1>截取数组</h1>
+  <script>
+    let arr = ['孙悟空', '猪八戒', '沙和尚', '唐僧', '白龙马']
+    let str = '2,4'
+    let result = ['唐僧', '白龙马']
+
+    function getRes(str, arr) {
+      let res = []
+      let strArr = str.split(',')
+
+      arr.map((ite, index) => {
+        strArr.map(item => {
+          if (Number(item) === index) {
+            res.push(ite)
+          }
+        })
+      })
+
+
+      let length = arr.length - strArr.length
+      res = [...res,...getSix(length)]
+      // res = res.concat(getSix(length))
+      return res
+    }
+    console.log('1--', getRes(str, arr));
+
+
+    function getSix(num){
+      return Array(num).fill('')
+    }
+    console.log('6--',getSix(6));
+
+  </script> -->
+  <!-- <h1>求2个数组的并集</h1>
+  <script>
+    let arr1=['白龙马','蹄儿朝西','猪八戒','高老庄']
+    let arr2 = ['孙悟空', '猪八戒', '沙和尚', '唐僧', '白龙马']
+    // function getHe(arr1,arr2){
+    //   let arr = []
+    //   arr1.map(item=>{
+    //     if(arr2.includes(item)){
+    //       arr.push(item)
+    //     }
+    //   })
+    //   return arr
+    // }
+
+
+
+    function getHe(arr1,arr2){
+      // let arr = arr1.filter(v=>{ return arr2.indexOf(v) > -1 })
+      let arr = arr1.filter(v=>{ return arr2.includes(v) === true })
+      return arr
+    }
+    console.log(getHe(arr1,arr2));
+  </script> -->
+  <h1>实现定时器</h1>
+  <script>
+    // 派发100个定时器任务，1秒-2秒-3秒......
+    // for (var i = 0; i <= 100; i++) {
+    //   (function (i) {
+    //     setTimeout(() => {
+    //       console.log(i)
+    //     },1000*i)
+    //   })(i)
+    // }
+    function recursivePrint(i,maxIterations) {
+      if(i>maxIterations) return
+      console.log(`Printing... ${i}`);
+      // 延迟1秒后再次调用自身
+      setTimeout(() => {
+        recursivePrint(i + 1,maxIterations);
+      }, 1000);
+    }
+
+    // 开始递归打印
+    recursivePrint(1,10);
+  </script>
+</body>
+
+</html>

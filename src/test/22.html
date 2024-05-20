@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /**
+     * null undefined 不需要拷贝
+     * 数字
+     * 布尔值
+     * 字符串
+     *
+     * 对象
+     * 数组
+     * */
+
+
+    let rrr = [
+      {
+        name: '孙悟空',
+        age: 500,
+      },
+      {
+        name: '猪八戒',
+        age: 88,
+      },
+    ]
+
+    // let rrr = [1,2,3,4]
+
+
+    function cloneDeep(params) {
+      let res;
+      if (Array.isArray(params)) {
+        res = []
+        params.forEach((item) => {
+          let newItem = cloneDeep(item)
+          res.push(newItem)
+        })
+        return res
+      } else if (Object.prototype.toString.call(params) === '[object Object]') {
+        res = {}
+        for (const key in params) {
+          let newVal = cloneDeep(params[key])
+          res[key] = newVal
+        }
+        return res
+      } else {
+        res = params
+        return res
+      }
+    }
+
+    console.time('深拷贝')
+    let jjj = cloneDeep(rrr)
+    console.timeEnd('深拷贝')
+
+    console.time('json')
+    let cld = JSON.parse(JSON.stringify(rrr))
+    console.timeEnd('json')
+
+
+
+
+
+  </script>
+</body>
+
+</html>

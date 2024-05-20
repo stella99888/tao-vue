@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>sortable.js拖动例子</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- 引入插件 -->
+    <script src="https://www.itxst.com/package/sortable/sortable.min.js"></script>
+    <style>
+        #wrapBox {
+            width: 360px;
+            /* 拖动容器的高度，由拖动项的高度撑开 */
+            height: auto;
+        }
+
+        #wrapBox div {
+            padding: 8px;
+            background-color: #fdfdfd;
+            border: solid 1px #eee;
+            margin-bottom: 10px;
+            /* 添加鼠标悬浮样式为移动的样式，要不然不好看 */
+            cursor: move;
+            font-size: 13px;
+        }
+
+        /* 设置鼠标按下时候的样式，加了好看些 */
+        #wrapBox div:active {
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>sortable.js</h1>
+    <h2>优先扣款顺序：</h2>
+    <!-- 一般来说，拖动的结构就是：外边一个拖动容器，里面是一个又一个的拖动项 -->
+    <div id="wrapBox">
+        <div data-id="1工商银行">工商银行</div>
+        <div data-id="2建设银行">建设银行</div>
+        <div data-id="3中国银行">中国银行</div>
+        <div data-id="4农业银行">农业银行</div>
+        <div data-id="5交通银行">交通银行</div>
+    </div>
+    <script>
+        //第一步，获取拖动容器
+        var wrap = document.getElementById('wrapBox');
+        //第二步，设置拖动项的拖动规则
+        var rules = {
+            animation: 500, // 拖动时的元素的位置变化的动画时长，
+            //拖动结束后的回调函数
+            onEnd: (event) =>{
+                console.log('参数是拖动事件对象', event);
+                //获取拖动后容器中的每一项的位置排序
+                var arr = sortable.toArray();
+                console.log('位置排序', arr);
+            },
+        };
+        //第三步，初始化 --> 给拖动容器添加拖动规则 
+        var sortable = Sortable.create(wrap, rules);
+        /**
+         * 插件自带的方法：
+         *      1. sortable.toArray() 获取序列化后的每个item元素的id属性的数组
+         *      2. Sortable.create(wrap, rules) 给拖动容器添加拖动规则
+         * */
+    </script>
+</body>
+
+</html>
+
+

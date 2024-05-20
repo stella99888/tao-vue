@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let obj = {
+      name: '孙悟空',
+      age: '500',
+      get: { name: '如来佛祖' },
+      scale: [
+        { name: '七十二变', effect: '很厉害' },
+        { name: '长生不老', effect: '就不老' },
+        { name: '筋斗云', effect: '十万八千里' },
+      ]
+    }
+    // 对象先遍历
+    // 判断每一项，如果是数组，就forEach，如果是对象，再forin遍历，如果是字符串，直接添加到新的对象里面
+      const deepCopy = (args) => {
+        if (Object.prototype.toString.call(args) === '[object Object]') {
+          const object = {}
+          for (let key in args) {
+            object[key] = deepCopy(args[key])
+          }
+          return object
+        }
+        if (Object.prototype.toString.call(args) === '[object Array]') {
+          const list = []
+          for (let i = 0; i < args.length; i++) {
+            list[i] = deepCopy(args[i])
+          }
+          return list
+        }
+        return args
+      }
+      const  res = deepCopy(obj)
+      res.name = '猪八戒'
+      console.log(res,obj);
+
+    // function DeepClone(obj,oo = {}) {
+    //   for (const key in obj) {
+    //     if(Object.prototype.toString.call(obj[key])==='[object String]') {
+    //       let str = obj[key]
+    //       oo[key] = str
+    //     }
+    //     // 如果是 数组
+    //     if(Object.prototype.toString.call(obj[key])==='[object Array]'){
+    //       // console.log('arr',obj[key]);
+    //       obj[key].forEach(item => {
+    //         DeepClone(item,oo)
+    //       });
+    //       // 如果是对象
+    //     }
+    //     if(Object.prototype.toString.call(obj[key])==='[object Object]'){
+    //       console.log('obj',obj[key]);
+    //       DeepClone(obj[key],oo)
+    //     }
+    //   }
+    //   return oo
+    // }
+    // console.log(DeepClone(obj))
+  </script>
+</body>
+
+</html>

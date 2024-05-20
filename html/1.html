@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>2222222</div>
+  <button class="btn1">猜</button>
+  <button class="btn2">停</button>
+  <script>
+    let arr = ['22', '33', '44', '55', '66']
+    let timer
+    let random
+    let btn1 = document.querySelector('.btn1')
+    let btn2 = document.querySelector('.btn2')
+    btn1.addEventListener('click', () => {
+      if (arr.length === 1) {
+        btn1.disabled = btn2.disabled = true
+        return
+      }
+      timer = setInterval(() => {
+        let Dom = document.querySelector('div')
+        random = parseInt(Math.random() * arr.length)
+        console.log(arr);
+        Dom.innerHTML = arr[random]
+      }, 1000);
+    })
+    btn2.addEventListener('click', () => {
+      clearInterval(timer)
+      arr.splice(random, 1)
+    })
+  </script>
+</body>
+
+</html>

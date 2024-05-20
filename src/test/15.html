@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let str = '我是一个大笨蛋'
+    let arr = ['我是','一个','大笨蛋']
+    let obj = {
+      name:'周涛',
+      say:'我是一个大笨蛋'
+    }
+    for(const key in obj) {
+      console.log(obj[key]);
+    }
+    //
+    for (let i = 0; i < arr.length; i++) {
+      console.log('i++',arr[i]);
+    }
+    for (let i = 0; i < str.length; i++) {
+      console.log('str---',str[i]);
+    }
+    //
+    for (const key of arr) {
+      console.log('of',key);
+    }
+    for (const key of str) {
+      console.log('of--1',key);
+    }
+    //
+    arr.forEach(item=>console.log('forEach',item))
+
+    console.log(str.split(',').toString())
+    // let a = 233
+    // let b = a + ''
+    // c = b.split('')
+    // d = c.reverse()
+    // e = d.join('')
+    // f = Number(e)
+    // console.log(a,f,a == f);
+
+
+    // let Dict= {
+    //     '西游记':'compA',
+    //     '水浒传':'compB',
+    //   }
+    //   console.log(Object.keys(Dict));
+    //   console.log(Object.value(Dict));
+
+</script>
+</body>
+</html>

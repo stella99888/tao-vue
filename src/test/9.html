@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let str = '{({[]})}' // 12 14/23
+    let str2 = '()()[]'
+    var isValid = function (s) {
+      // 1. 如果是奇数个，肯定是不符合条件的，因为括号是成对成对出现的
+      if (s.length % 2 === 1) {
+        return false
+      }
+      // 2. 如果是偶数个，再进一步做判断，看是否符合
+      let stackArr = [] // 3. 定义一个栈（数组）用来存放配对需要的标识
+      for (let i = 0; i < s.length; i++) { // 4. 遍历拿到字符串中每一个括号el-se1
+        // 5. 一开始栈数组是空的，所以不用对比，继续往下看
+        console.log('---1',stackArr[stackArr.length - 1],'--2',s[i]);
+        if (stackArr[stackArr.length - 1] === s[i]) {
+          stackArr.pop()
+        }
+        // 6. 接下来根据遇到的是什么括号，往栈数组中入栈所需要的另一半括号
+        else {
+          if (s[i] === '(') { // 7. 如果是左小括号，就在栈数组中追加一个标记，需要右小括号，进行搭配
+            stackArr.push(')')
+          } else if (s[i] === '[') { // 8. 如果是左中括号，就在栈数组中追加一个标记，需要右中括号，进行搭配
+            stackArr.push(']')
+          } else if (s[i] === '{') { // 9. 如果是左大括号，就在栈数组中追加一个标记，需要右大括号，进行搭配
+            stackArr.push('}')
+          } else { // 10. 如果直接就直接遇到了右小括号、右中括号、右大括号，那就说明是有问题的，因为只能是左匹配右，不能右匹配左
+            return false // 11. 比如咱们正常使用括号()  []  {} 从来不会这样用 )(   ][   }{
+            // 12. 加之上方的if判断，是不能出现这种情况的，如果出现了，就说明括号字符串是有问题的，直接false即可
+          }
+        }
+      }
+      // 13. 匹配完了以后，看看是否有没匹配上的
+      if (stackArr.length == 0) { // 14. 要是都匹配上了，说明就是没问题的，返回true
+        return true
+      } else { // 15. 反之，说明不符合
+        return false
+      }
+    };
+    let res = isValid(str2)
+    // function getYes(str) {
+    //   let arr = str.split('')
+    //   let temp = {}
+    //   arr.forEach(item => {
+    //     if (item in temp) {
+    //       let count = temp[item]
+    //       temp[item] = count + 1
+    //     } else {
+    //       temp[item] = 1
+    //     }
+    //   })
+    //   // 除了个数匹配 数组是双数
+    //   // 判断是否是双数
+    //   let lengthBoolean = (str.length - 1) % 2 === 1 ? false : true
+    //   return temp['('] === temp[')'] && temp['['] === temp[']'] && temp['{'] === temp['}'] && lengthBoolean
+    // }
+    // let res = getYes(str)
+    // console.log(res);
+  </script>
+</body>
+
+</html>

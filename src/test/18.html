@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red{
+      width: 1000px;
+      height: 500px;
+      background-color: pink;
+    }
+    .yel{
+      width: 20px;height: 20px;
+      background-color:#909;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="red">
+    <div class="yel">
+
+    </div>
+  </div>
+  <script>
+    let red = document.querySelector('.red')
+    let yel = document.querySelector('.yel')
+    let speed = 10
+    let leftVal = 0
+    setInterval(() => {
+      yel.style.left = leftVal + 1 + 'px'
+    }, 16);
+
+  </script>
+</body>
+
+</html>

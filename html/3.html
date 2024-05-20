@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      display: flex;
+      flex-wrap: wrap;
+      display: none;
+    }
+
+    .one {
+      width: 300px;
+      height: 20px;
+      background-color: aqua;
+    }
+
+    .thr {
+      width: 300px;
+      height: 20px;
+      background-color: red;
+    }
+
+    .two {
+      width: 300px;
+      height: 20px;
+      background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="one">1</div>
+    <div class="two">2</div>
+    <div class="thr">3</div>
+    <div class="two">2</div>
+    <div class="thr">3</div>
+  </div>
+  <script>
+    // let arr = [1, 5, 2, 3, 4]
+    // // arr.sort((a, b) => {
+    // //   a - b
+    // // })
+    // for (let i = 0; i < arr.length; i++) {
+    //   for (let j = 0; j <= i; j++) {
+    //     let temp
+    //     if (arr[i] > arr[j]) {
+    //       temp = arr[i]
+    //       arr[i] = arr[j]
+    //       arr[j] = temp
+    //     }
+    //     console.log(arr[i], arr[j]);
+    //   }
+
+    // }
+    // // let maxTwo = arr.at(-2)
+    // console.log(arr);
+    let grades = [
+      { name: 'xi', cource: 'Math', score: '98' },
+      { name: 'yu', cource: 'Math', score: '98' },
+      { name: 'liu', cource: 'Math', score: '80' },
+      { name: 'chuan', cource: 'Production', score: '90' },
+      { name: 'luo', cource: 'Production', score: '88' },
+    ]
+    function getMax(grades) {
+      // 定义temp为存储对象
+      let temp = {}
+      // Math科目存储进去
+      let curCource = temp[grades[0].cource] = grades[0]
+      grades.forEach((el, index) => {
+        // 如果是同一个科目
+        if (curCource.cource === el.cource) {
+          if (curCource.score > el.score) { // 就下一位
+            return
+          } else if (curCource.score = el.score) { // 就添加一个项
+            arr[curCource.cource] = el.cource
+            console.log(curCource, temp);
+          } else if (curCource.score < el.score) { // 就保留这一项
+            arr[curCource.cource] = el.cource
+          }
+        } else { // 如果不是同一个科目
+          temp[grades[index].cource] = el
+
+        }
+      });
+    }
+    getMax(grades) 
+  </script>
+</body>
+
+</html>

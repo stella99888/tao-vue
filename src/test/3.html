@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div>我爱我爱我爱</div>
+    <script>
+        let selObj = window.getSelection();
+        console.log(selObj);
+        var arr1=[3,45,6,7,0]
+        var arr2 =arr1.map(item=>item+1)
+        console.log('1--',arr1,arr2);
+
+        var arr0=[21023,0]
+
+        var arr3 =arr0.forEach(item=>item+1)
+        console.log('2--',arr0,arr3);
+
+    </script> -->
+    <button class="btn">bb对象借用(调用)aa对象上的方法</button>
+<script>
+    class A {
+        constructor() {
+            this.name = 'a'
+            this.createBy = 'aMan'
+        }
+        aFn() {
+            console.log('aFn执行');
+            let today = new Date() + ''
+            return `今天的日期是：${today.slice(11, 24)}`
+        }
+    }
+    class B {
+        constructor() {
+            this.name = 'b'
+            this.createBy = 'bMan'
+        }
+        bFn() {
+            console.log('i am bFn');
+        }
+    }
+    let aa = new A()
+    let bb = new B()
+    console.log(aa);
+    console.log(bb);
+
+    /**
+     * aa对象身上有一些属性和方法（功能），bb对象身上也有一些属性和方法（功能）
+     * bb对象，现在也想有aa对象上的方法功能，那怎么办呢？（如bb对象需要一个获取时间的方法）
+     * 两种方式：方式一：bb对象可以把aa对象上的方法代码拷贝一份，复制粘贴到自己身上，即可使用
+     *                  但某些情况下代码嵌套太深，不方便复制粘贴，那怎么办？只需被调用called即可
+     *           方式二：让aa对象上的某个方法被bb调用即可，或者说是借来用一用，伪代码即为：
+     *                  aa.aFn.call(bb) 相当于
+     *                  aa.aFn isCalled by bb 即aa对象身上的aFn方法，被bb对象借来用一用
+     * */
+    document.querySelector('.btn').onclick = () => {
+        let result = aa.aFn.call(bb)
+        console.log('aa对象的aFn方法,被bb对象借用一下,结果为--->' + result);
+    }
+</script>
+
+</body>
+</html>

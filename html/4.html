@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 220px;
+      height: 320px;
+      border: 1px solid red;
+      position: relative;
+      background-color: red;
+    }
+
+    img {
+      width: 200px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* scale: (1, 2); */
+      /* transform: scale(1, 1.8); */
+      /* transform-origin: top left; */
+      /* transform-origin: top left; */
+    }
+
+    button {
+      position: fixed;
+      top: 100px;
+      right: 100px;
+    }
+
+    .active {
+      transform: scale(1.2, 1.2);
+      transform-origin: center left;
+      /* zoom: 120%; */
+    }
+
+    .p {
+      text-align: center;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <img src="http://ashuai.work/static/img/avantar.png" alt="">
+    <p class="p">我的帅帅</p>
+  </div>
+  <button>变更</button>
+  <script>
+    // let btn = document.querySelector('button')
+    // let box = document.querySelector('.box')
+    // btn.addEventListener('click', () => {
+    //   // img.style.transformOrigin = "top left"
+    //   // img.style.transform = "scale(2)"
+    //   box.className = 'active'
+    // })
+    let array = [11, 23, 5, 56, 2]
+    let temp
+    for (let i = 0; i < array.length; i++) {
+      for (let j = 0; j <= i; j++) {
+        debugger
+        console.log(array[i], array[j]);
+        if (array[i] > array[j]) {
+          temp = array[i]
+          array[i] = array[j]
+          array[j] = temp
+        }
+      }
+    }
+    console.log(array);
+  </script>
+</body>
+
+</html>

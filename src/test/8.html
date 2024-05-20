@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // let arr = [
+    //   {
+    //     name: '中国',
+    //     city: 'zhongguo',
+    //     children: [
+    //       {
+    //         name: '四川',
+    //         city: 'sichuan',
+    //         children: [
+    //           {
+    //             name: '成都',
+    //             city: 'chengdu'
+    //           },
+    //           {
+    //             name: '攀枝花',
+    //             city: 'panzhihua'
+    //           }
+    //         ]
+    //       },
+    //       {
+    //         name: '河北',
+    //         city: 'hebei',
+    //         children: [
+    //           {
+    //             name: '保定',
+    //             city: 'baoding'
+    //           },
+    //           {
+    //             name: '石家庄',
+    //             city: 'shizjiazhuang'
+    //           }
+    //         ]
+    //       },
+    //     ]
+    //   },
+    // ]
+    // // 获取每个级别有多少个city
+    // function getNum(params) {
+    //   let citys = []
+    //   params.forEach(el => {
+    //     citys.push(el.city)
+    //     if (el.children && el.children.length > 0) {
+    //       getNum(el.children)
+    //     }
+    //   });
+    //   let length = citys.length
+    //   console.log(length);
+    // }
+    // let num = getNum(arr)
+    // 图片地址：可以是网络地址，也可以是本地文件的 Blob 地址
+    const imageUrl = "https://pica.zhimg.com/v2-5fa5ad0c6602187b0439bf8cd9d69ef4_xll.jpg?source=32738c0c" // 需要写成base64的写法
+
+    // 打印图片
+    console.log(
+      "%c image",
+      `background-image: url(${imageUrl});
+      background-size: contain;
+      background-repeat: no-repeat;
+      padding: 200px;
+      `
+    )
+    // 获取所有的city数组
+    // function getArr(arr){
+    //   let wrap = []
+    //   function DeepClone(params) {
+    //     params.forEach(el => {
+    //       wrap.push(el.city)
+    //       if (el.children && el.children.length > 0) {
+    //         DeepClone(el.children)
+    //       }
+    //     });
+    //     return wrap
+    //   }
+    //   return DeepClone(arr)
+    // }
+    // console.log(getArr(arr));
+  </script>
+</body>
+
+</html>
