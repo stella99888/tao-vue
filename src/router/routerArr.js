@@ -87,16 +87,16 @@ const routerArr = [
     name: 'testAnchorPoint',
     component: () => import('../views/TestAnchorPoint.vue'),
     meta: {
-      title: '前端多线程',
+      title: '考试锚点定位',
       keepAlive: false,
     }
   },
   {
-    path: '/deepForm',
-    name: 'deepForm',
-    component: () => import('../views/DeepForm.vue'),
+    path: '/commandBaseComponent',
+    name: 'commandBaseComponent',
+    component: () => import('../views/CommandBaseComponent.vue'),
     meta: {
-      title: '前端多线程',
+      title: '命令式组件封装',
       keepAlive: false,
     }
   },

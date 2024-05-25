@@ -79,8 +79,8 @@ export default {
           icon: 'el-icon-location'
         },
         {
-          index: '/deepForm',
-          title: 'ABform表单联动',
+          index: '/commandBaseComponent',
+          title: '命令式组件封装',
           icon: 'el-icon-location'
         },
       ]
