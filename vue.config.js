@@ -30,8 +30,8 @@ module.exports = defineConfig({
     proxy: {
       // 全局只会出现一次 标识'/zhou'和一次 "http://localhost:9999"
       "/zhou": {
-        // target: "http://localhost:9999",
-        target: "http://ashuai.work",
+        target: "http://localhost:9999",
+        // target: "http://ashuai.work",
         changeOrigin: true, // 虚拟的站点需要更管origin
         pathRewrite: {
           "/zhou": ""

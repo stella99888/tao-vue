@@ -11,6 +11,15 @@ const routerArr = [
     }
   },
   {
+    path: '/myForm',
+    name: 'myForm',
+    component: () => import(/* webpackChunkName: 'about' */ '../views/Form.vue'),
+    meta: {
+      title: '前端多线程',
+      keepAlive: false,
+    }
+  },
+  {
     path: '/layload',
     name: 'layload',
     component: () => import('../views/LayLoad.vue'),
@@ -77,6 +86,15 @@ const routerArr = [
     path: '/testAnchorPoint',
     name: 'testAnchorPoint',
     component: () => import('../views/TestAnchorPoint.vue'),
+    meta: {
+      title: '前端多线程',
+      keepAlive: false,
+    }
+  },
+  {
+    path: '/deepForm',
+    name: 'deepForm',
+    component: () => import('../views/DeepForm.vue'),
     meta: {
       title: '前端多线程',
       keepAlive: false,

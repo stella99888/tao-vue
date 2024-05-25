@@ -7,13 +7,36 @@ export function getPersonMsg() {
     method: "get",
   });
 }
+// 
+export function getOptions() {
+  return request({
+    url: "/getOptions",
+    method: "get",
+  });
+}
 
-// export function getDoc() {
-//   return request({
-//     url: "/getDoc",
-//     method: "get",
-//   });
+export function getOptionsCity() {
+  return request({
+    url: "/getOptionsCity",
+    method: "get",
+  });
+}
+export function getOptionsAndDeepOptions(params) {
+  return request({
+    url: "/getOptionsAndDeepOptions",
+    method: "get",
+    params: params
+  });
+}
+// export function getHighFn(params, cb) {
+//   console.log('cb---', params, cb);
+//   cb(request({
+//     url: `/getOptionsAndDeepOptions?cityVal=${params}`,
+//     method: "get"
+//   }))
 // }
+
+
 
 // // 登录
 // export function authCodeLogin(params) {

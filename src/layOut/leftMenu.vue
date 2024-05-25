@@ -35,6 +35,11 @@ export default {
           icon: 'el-icon-location'
         },
         {
+          index: '/myForm',
+          title: '表单封装',
+          icon: 'el-icon-location'
+        },
+        {
           index: '/layload',
           title: '懒加载',
           icon: 'el-icon-location'
@@ -55,22 +60,27 @@ export default {
         },
         {
           index: '/getDoc',
-          title: '下载文件...',
+          title: '下载文件',
           icon: 'el-icon-location'
         },
         {
           index: '/isComponent',
-          title: '公共动态路由...',
+          title: '公共动态路由',
           icon: 'el-icon-location'
         },
         {
           index: '/mergeTable',
-          title: '公共动态路由...',
+          title: '表格表体合并',
           icon: 'el-icon-location'
         },
         {
           index: '/testAnchorPoint',
-          title: '试题组件锚点定位...',
+          title: '试题组件锚点定位',
+          icon: 'el-icon-location'
+        },
+        {
+          index: '/deepForm',
+          title: 'ABform表单联动',
           icon: 'el-icon-location'
         },
       ]
