@@ -4,7 +4,8 @@
     <div class="dialog">
       <div class="body">{{ msg }}</div>
       <div class="footer">
-        <el-button @click="$emit('click')">确认</el-button>
+        <el-button size="small" type="primary" @click="setEvent('onComfirm')">提交</el-button>
+        <el-button size="small" @click="setEvent('onCancle')">取消</el-button>
       </div>
     </div>
   </div>
@@ -17,13 +18,17 @@ export default {
     msg: {
       type: String,
       required: true
+    },
+    onClick: {
+      type: Function,
+      default: () => { }
     }
   },
-  data() {
-    return {
-
-    }
-  }
+  methods: {
+    setEvent(type) {
+      this.onClick(type)
+    },
+  },
 };
 </script>
 <style scoped lang="scss">
@@ -38,7 +43,7 @@ export default {
 
   .dialog {
     width: 30%;
-    background-color: antiquewhite;
+    background-color: white;
     margin: auto;
     margin-top: 15vh;
     border-radius: 5px;
@@ -51,7 +56,7 @@ export default {
     }
 
     .body {
-      text-align: left;
+      text-align: center;
       padding: 15px;
     }
 

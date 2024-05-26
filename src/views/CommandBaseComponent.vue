@@ -1,7 +1,7 @@
 <!-- 命令式组件:父组件 -->
 <template>
   <div>
-    <el-button @click="showMsgDialog">显示提示框</el-button>
+    <el-button @click="clickHandler">显示提示框</el-button>
   </div>
 </template>
 
@@ -9,10 +9,22 @@
 import { showMsg } from "./components/commandBaseComponents/showMsg";
 export default {
   methods: {
-    showMsgDialog() {
-      console.log(1);
-      showMsg('123')
+    clickHandler() {
+      // 调用js文件方法并传参
+      const close = showMsg('确认要提交该信息吗？',
+        () => {
+          // ToDo一些请求
+          this.uploadMsg()
+          close()
+        },
+        () => {
+          close()
+        })
+    },
+    uploadMsg() {
+      console.log('uploadMsg');
     }
+
   }
 };
 </script>
