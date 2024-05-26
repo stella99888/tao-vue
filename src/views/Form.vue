@@ -3,8 +3,13 @@
   <div class="form">
     <!-- 每个孙组件都会抛出的事件，顶层使用ev去接受所有事件 -->
     <my-form :compArr="compArr" :form="form" :rules="rules" @ev="ev">
-      <el-button type="primary">确定1</el-button>
-      <el-button>取消1</el-button>
+      <template v-slot:age>
+        <span>Http://</span>
+      </template>
+      <template v-slot:address>
+        <el-button type="primary">确定1</el-button>
+        <el-button>取消1</el-button>
+      </template>
     </my-form>
   </div>
 </template>
@@ -165,7 +170,7 @@ export default {
           attr: {
             prop: 'address',
             placeholder: '请输入',
-            type: "textarea"
+            // type: "textarea"
           },
         },
       ],
@@ -182,19 +187,16 @@ export default {
     ev(val) {
       console.log('val', val);
       this.setBorder(val)
-      this.cancelBorder(val)
       this.controlCity(val)
       this.controlAdd(val)
     },
     // 控制age，聚焦则边框变红
     setBorder(val) {
-      if (val.setBorder) {
+      if (val.eventName === "focus" && val.propName === 'age') {
         let dom = document.querySelector('.el-input__inner')
         dom.style.border = '1px solid red'
       }
-    },
-    cancelBorder(val) {
-      if (val.cancelBorder) {
+      if (val.eventName === "blur" && val.propName === 'age') {
         let dom = document.querySelector('.el-input__inner')
         dom.style.border = 'none'
       }

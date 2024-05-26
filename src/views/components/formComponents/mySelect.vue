@@ -23,6 +23,10 @@ export default {
       type: Object,
       default: () => { }
     },
+    downslot: {
+      type: Object,
+      default: () => { }
+    },
   },
   data() {
     return {
@@ -64,11 +68,8 @@ export default {
     async getOptionArr() {
       const conf = this.optionArr
       if (conf?.font) this.options = conf?.font
-      console.log('conf?.back?.api', conf?.back?.api);
       if (conf?.back?.api) {
-        // let res = await axios.get(conf?.back.api)
         let res = await conf?.back.api()
-        console.log('res.data', res);
         this.options = (res.data || []).map(item => {
           return {
             value: item[conf.back?.value],

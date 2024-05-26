@@ -15,7 +15,11 @@ export default {
     form: {
       type: Object,
       default: () => { }
-    }
+    },
+    downslot: {
+      type: Object,
+      default: () => { }
+    },
   },
   methods: {
     getChange() {
