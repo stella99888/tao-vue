@@ -39,7 +39,7 @@ body {
 }
 
 .el-header {
-  background-color: pink;
+  background-color: #ed7574;
   text-align: center;
 }
 

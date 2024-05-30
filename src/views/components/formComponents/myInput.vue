@@ -8,17 +8,20 @@
   }" @blur="(params, val) => {
     getChange(params, 'blur')
   }" style="width: 100%;" v-bind="attr" v-model="form[attr.prop]" class="my-input">
-    <span slot="prepend"></span>
-    <!-- <slot v-for="(item, index) in slotName" :key="index" slot="prepend"></slot> -->
-    <!-- <slot name="age"></slot> -->
-    <!-- <slot :name="slotName"></slot> -->
+    <slo :propKey="attr.prop" :propName='slotName' :slot='slotNameFn(slotName)' v-for="(_, slotName) in $slots">
+      <template v-slot:[slot] v-for="(_, slot) in $slots">
+        <slot :name="slot"></slot>
+      </template>
+    </slo>
   </el-input>
 
 </template>
 
 <script>
+import slo from "./slo.vue";
 export default {
   name: "MyInput",
+  components: { slo },
   props: {
     attr: {
       type: Object,
@@ -28,12 +31,15 @@ export default {
       type: Object,
       default: () => { }
     },
-    downslot: {
-      type: Object,
-      default: () => { }
+    slotName: {
+      type: Array,
+      default: () => []
     },
   },
   methods: {
+    slotNameFn(slotName) {
+      return slotName.split('&')[1]
+    },
     // 把值都丢出去，在最外层做一定的操作
     getChange(params, eventName) {
       this.$emit('ev', {

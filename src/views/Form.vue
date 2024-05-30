@@ -3,13 +3,11 @@
   <div class="form">
     <!-- 每个孙组件都会抛出的事件，顶层使用ev去接受所有事件 -->
     <my-form :compArr="compArr" :form="form" :rules="rules" @ev="ev">
-      <template v-slot:age>
-        <span>Http://</span>
-      </template>
-      <template v-slot:address>
-        <el-button type="primary">确定1</el-button>
-        <el-button>取消1</el-button>
-      </template>
+      <i slot="age&prefix" class="el-input__icon el-icon-platform-eleme"></i>
+      <i slot="age&suffix" class="el-input__icon el-icon-eleme"></i>
+      <i slot="address&prefix" class="el-input__icon el-icon-user-solid"></i>
+      <i slot="address&suffix" class="el-input__icon el-icon-user-solid"></i>
+      <i slot="food&prefix" class="el-input__icon el-icon-user-solid"></i>
     </my-form>
   </div>
 </template>
@@ -71,7 +69,7 @@ export default {
               value: 'va',
               label: 'la',
             },
-            joiner: '-'
+            // joiner: '-'
           },
         },
         {
@@ -116,7 +114,7 @@ export default {
                 label: '御剑飞升'
               }
             ],
-            joiner: '()'
+            // joiner: '()'
           },
         },
         {
@@ -139,6 +137,9 @@ export default {
               value: 'va',
               label: 'la',
             },
+            // 可以单独拎出来方法加不同分隔符
+            cbJoiner: this.cbJoiner,
+            // joiner: 'and'
           },
         },
         {
@@ -183,6 +184,14 @@ export default {
     }
   },
   methods: {
+    cbJoiner(conf, val) {
+      return val.map(item => {
+        return {
+          value: `111${item[conf.back?.value]}`,
+          label: `😂${item[conf.back?.label]}😂`
+        }
+      })
+    },
     // 通过$listener，爷组件接收孙组件的参数
     ev(val) {
       console.log('val', val);
@@ -192,14 +201,10 @@ export default {
     },
     // 控制age，聚焦则边框变红
     setBorder(val) {
-      if (val.eventName === "focus" && val.propName === 'age') {
-        let dom = document.querySelector('.el-input__inner')
-        dom.style.border = '1px solid red'
-      }
-      if (val.eventName === "blur" && val.propName === 'age') {
-        let dom = document.querySelector('.el-input__inner')
-        dom.style.border = 'none'
-      }
+      let dom = document.querySelector('.el-input__inner')
+      let border = dom.style.border
+      if (val.eventName === "focus" && val.propName === 'age') border = '1px solid red'
+      if (val.eventName === "blur" && val.propName === 'age') border = 'none'
     },
     // 控制city，级联选择
     controlCity(val) {

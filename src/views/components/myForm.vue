@@ -13,6 +13,9 @@
               <!-- optionArr传递下去给mySelect使用 -->
               <component :is="item.type" :form="form" :attr="item.attr" :downslot="$slots" :optionArr="item.optionArr"
                 v-on="$listeners">
+                <template v-slot:[slot] v-for="(_, slot) in $slots">
+                  <slot :name="slot"></slot>
+                </template>
               </component>
             </el-form-item>
           </template>
