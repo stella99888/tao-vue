@@ -9,7 +9,6 @@ import Vue from 'vue'
 
 // 引入loading组件
 import zhLoading from './ZhLoading';
-console.log('zhLoading---', zhLoading);
 // 通过Vue的extend方法继承这个引入的loading组件，继承后会返回一个vue子类，需要使用实例化即可??
 // vue.extend传入数据，进行处理后，多了很多东西
 const Dialog = Vue.extend(zhLoading);
@@ -42,4 +41,3 @@ function hideDialog() {
 // 将打开函数和关闭函数都挂载到Vue原型prototype上，方便我们调用
 Vue.prototype.$showDialog = showDialog;
 Vue.prototype.$hideDialog = hideDialog;
-Vue.prototype.$aaa = '周小姐'
