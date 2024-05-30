@@ -44,8 +44,8 @@ export default {
           title: '懒加载',
           icon: 'el-icon-location'
         }, {
-          index: '/random',
-          title: '随机数',
+          index: '/amap',
+          title: '地图',
           icon: 'el-icon-location'
         },
         {
@@ -81,6 +81,11 @@ export default {
         {
           index: '/commandBaseComponent',
           title: '命令式组件封装',
+          icon: 'el-icon-location'
+        },
+        {
+          index: '/requestAnimationFrame',
+          title: '动画requestAnimationFrame',
           icon: 'el-icon-location'
         },
       ]

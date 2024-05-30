@@ -29,11 +29,11 @@ const routerArr = [
     }
   },
   {
-    path: '/random',
-    name: 'random',
-    component: () => import('../views/Random.vue'),
+    path: '/amap',
+    name: 'amap',
+    component: () => import('../views/Amap.vue'),
     meta: {
-      title: '前端多线程',
+      title: '地图',
       keepAlive: false,
     }
   },
@@ -97,6 +97,15 @@ const routerArr = [
     component: () => import('../views/CommandBaseComponent.vue'),
     meta: {
       title: '命令式组件封装',
+      keepAlive: false,
+    }
+  },
+  {
+    path: '/requestAnimationFrame',
+    name: 'requestAnimationFrame',
+    component: () => import('../views/RequestAnimationFrame.vue'),
+    meta: {
+      title: '动画requestAnimationFrame',
       keepAlive: false,
     }
   },
